@@ -1,0 +1,3 @@
+﻿{
+  "ConnectionStrings": { "RedDownConnection": "server=LENOVO-PC\\BORNE;Database=RedDownDb;Integrated Security=true;MultipleActiveResultSets=true;" }
+}
