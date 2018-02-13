@@ -12,12 +12,14 @@ namespace RedDown.ViewModels
         [MinLength(3, ErrorMessage = "El nombre es requerido (min. 3 caracteres)")]
         public string Name { get; set; }
         [Required]
-        [MinLength(5, ErrorMessage = "El A. paterno es requerido (min. 5 caracteres)")]
+        [MinLength(4, ErrorMessage = "El A. paterno es requerido (min. 5 caracteres)")]
         public string App { get; set; }
-        [MinLength(5, ErrorMessage = "A. materno (min. 5 caracteres)")]
+        [MinLength(4, ErrorMessage = "A. materno (min. 5 caracteres)")]
         public string Apm { get; set; }
+        [Required]
         public int AgeBirth { get; set; }
+        [Required]
         public int Pupilage { get; set; }
-        public int RelationShip { get; set; }
+        //public int RelationShip { get; set; }
     }
 }

@@ -4,70 +4,362 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
 <div class="col-lg-offset-3 col-lg-6">
-    <h2 class="text-center">Registro Red Down</h2>
-    <div id="frmBuy">
-        <div asp-validation-summary="ModelOnly"></div>
-        <form method="post">
-            <div class="form-group">
-                <h3 class="text-center">Datos generales</h3>
-                <div class="form-group">
-                    <label asp-for="Name">Nombre:</label>
-                    <input asp-for="Name" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Name"></span>
+    <div class="well">
+        <h2 class="text-center">Registro Red Down</h2>
+        <div id="frmRegistry">
+            <div asp-validation-summary="ModelOnly"></div>
+            <form method="post">
+                <div class="panel-group" id="registryTab" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="generalDataHead">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#registryTab" href="#generalData" aria-expanded="false" aria-controls="generalData">
+                                    Datos generales
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="generalData" class="panel-collapse collapse" role="tabpanel" aria-labelledby="generalDataHead">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label asp-for="Curp">Curp:</label>
+                                        <input asp-for="Curp" class="form-control text-uppercase" />
+                                        <span class="text-danger" asp-validation-for="Curp"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Name">Nombre:</label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Name"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="App">A. Paterno:</label>
+                                        <input asp-for="App" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="App"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Apm">A. Materno:</label>
+                                        <input asp-for="Apm" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Apm"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="BirthDate">Fecha de nacimiento:</label>
+                                        <input type="date" asp-for="BirthDate" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="BirthDate"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="BirthPlace">Lugar de nacimiento:</label>
+                                        <select asp-for="BirthPlace" class="form-control" asp-items="Html.GetEnumSelectList<States>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="BirthPlace"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ResidencePlace">Lugar de recidencia:</label>
+                                        <select asp-for="ResidencePlace" class="form-control" asp-items="Html.GetEnumSelectList<States>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="ResidencePlace"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="SonNumber">Número de hijo:</label>
+                                        <input type="number" asp-for="SonNumber" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="SonNumber"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="BrothersNumber">Número de hermanos:</label>
+                                        <input type="number" asp-for="BrothersNumber" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="BrothersNumber"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="MainCarer">Cuidador principal:</label>
+                                        <select asp-for="MainCarer" class="form-control" asp-items="Html.GetEnumSelectList<MainCarer>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="MainCarer"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DiagnosticTime">Cuidador principal:</label>
+                                        <select asp-for="DiagnosticTime" class="form-control" asp-items="Html.GetEnumSelectList<Diagnostic>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="DiagnosticTime"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="MedicalCare">Atención medica:</label>
+                                        <select asp-for="MedicalCare" class="form-control" asp-items="Html.GetEnumSelectList<MedicalAtention>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="MedicalCare"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h3 class="text-center">Datos del padre</h3>
+                                    <div class="form-group">
+                                        <label asp-for="Father.Name">Nombre:</label>
+                                        <input asp-for="Father.Name" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Father.Name"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Father.App">A. Paterno:</label>
+                                        <input asp-for="Father.App" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Father.App"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Father.Apm">A. Materno:</label>
+                                        <input asp-for="Father.Apm" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Father.Apm"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Father.AgeBirth">Edad de la papá al momento del nacimiento:</label>
+                                        <input type="number" asp-for="Father.AgeBirth" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Father.AgeBirth"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Father.Pupilage">Nivel educativo del papá:</label>
+                                        <select asp-for="Father.Pupilage" class="form-control" asp-items="Html.GetEnumSelectList<Pupilage>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="Father.Pupilage"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h3 class="text-center">Datos de la madre</h3>
+                                    <div class="form-group">
+                                        <label asp-for="Mother.Name">Nombre:</label>
+                                        <input asp-for="Mother.Name" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Mother.Name"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Mother.App">A. Paterno:</label>
+                                        <input asp-for="Mother.App" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Mother.App"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Mother.Apm">A. Materno:</label>
+                                        <input asp-for="Mother.Apm" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Mother.Apm"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Mother.AgeBirth">Edad de la mamá al momento del nacimiento:</label>
+                                        <input type="number" asp-for="Mother.AgeBirth" class="form-control" />
+                                        <span class="text-danger" asp-validation-for="Mother.AgeBirth"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Mother.Pupilage">Nivel educativo del mamá:</label>
+                                        <select asp-for="Mother.Pupilage" class="form-control" asp-items="Html.GetEnumSelectList<Pupilage>()">
+                                            <option selected="selected" value="">Seleccionar</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="Mother.Pupilage"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="medicalDataHead">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#registryTab" href="#medicalData" aria-expanded="false" aria-controls="medicalData">
+                                    Seguimiento integral
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="medicalData" class="panel-collapse collapse" role="tabpanel" aria-labelledby="medicalDataHead">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label asp-for="Questions.CardioTipo">¿Tiene Cariotipo?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.CardioTipo, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.CardioTipo, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.CardioTipo"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Ecocardiograma">¿Alguna vez le han hecho un ECOCARDIOGRAMA?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Ecocardiograma, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Ecocardiograma, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Ecocardiograma"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.FuncTiroidea">¿Le han hecho PRUEBAS DE FUNCIÓN TIROIDEA en el último año?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.FuncTiroidea, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.FuncTiroidea, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.FuncTiroidea"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Biometria">¿Le han hecho BIOMETRIA HEMÁTICA en el último año?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Biometria, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Biometria, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Biometria"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Auditiva">¿Le han hecho en los últimos 3 años alguna valoración AUDITIVA?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Auditiva, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Auditiva, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Auditiva"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Oftalmologica">¿Le han hecho en los últimos 3 años alguna valoración OFTALMOLÓGICA?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Oftalmologica, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Oftalmologica, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Oftalmologica"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Dentista">¿Ha acudido al DENTISTA en los últimos 2 años?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Dentista, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Dentista, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Dentista"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.PosDormir">¿Al dormir tiene posiciones extrañas , boca abierta, despertares o ronquidos?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.PosDormir, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.PosDormir, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.PosDormir"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Ortopedista">¿Alguna vez han acudido con el ORTOPEDISTA?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Ortopedista, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Ortopedista, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Ortopedista"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Nutriologo">¿Lo ha valorado el NUTRIÓLOGO?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Nutriologo, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.Nutriologo, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.Nutriologo"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.MalaConducta">
+                                        ¿Su hijo tiene problemas de conducta ( berrinches, frustración , agresividad ) que le
+                                        impidan socializar?
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.MalaConducta, "true")Si
+                                        </span>
+                                        <span class="input-group-addon">
+                                            @Html.RadioButtonFor(model => model.Questions.MalaConducta, "false")No
+                                        </span>
+                                    </div>
+                                    <span class="text-danger" asp-validation-for="Questions.MalaConducta"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="terapiDataHead">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#registryTab" href="#terapiData" aria-expanded="false" aria-controls="terapiData">
+                                    Intervención terapeutica (seleccione una opción por rubro)
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="terapiData" class="panel-collapse collapse" role="tabpanel" aria-labelledby="terapiDataHead">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label asp-for="Questions.InterTemprana">Intervención temprana:</label>
+                                    <select asp-for="Questions.InterTemprana" class="form-control" asp-items="Html.GetEnumSelectList<ActivityTherapy>()">
+                                        <option selected="selected" value="">Seleccionar</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="Questions.InterTemprana"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.TerapiaLeng">Terapia de lenguaje:</label>
+                                    <select asp-for="Questions.TerapiaLeng" class="form-control" asp-items="Html.GetEnumSelectList<ActivityTherapy>()">
+                                        <option selected="selected" value="">Seleccionar</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="Questions.TerapiaLeng"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.TerapiaFam">Terapia psicológica o terapia familiar:</label>
+                                    <select asp-for="Questions.TerapiaFam" class="form-control" asp-items="Html.GetEnumSelectList<ActivityTherapy>()">
+                                        <option selected="selected" value="">Seleccionar</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="Questions.TerapiaFam"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.TerapiaAprenz">Terapia de aprendizaje:</label>
+                                    <select asp-for="Questions.TerapiaAprenz" class="form-control" asp-items="Html.GetEnumSelectList<ActivityTherapy>()">
+                                        <option selected="selected" value="">Seleccionar</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="Questions.TerapiaAprenz"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.ActActual">Actividad actual:</label>
+                                    <select asp-for="Questions.ActActual" class="form-control" asp-items="Html.GetEnumSelectList<ActivityTherapy>()">
+                                        <option selected="selected" value="">Seleccionar</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="Questions.ActActual"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Questions.Fundacion">¿Forman parte de alguna red de apoyo o fundación especial para personas con síndrome de Down?</label>
+                                    <input asp-for="Questions.Fundacion" class="form-control" />
+                                    <span class="text-danger" asp-validation-for="Questions.Fundacion"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="App">A. Paterno:</label>
-                    <input asp-for="App" class="form-control" />
-                    <span class="text-danger" asp-validation-for="App"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Apm">A. Materno:</label>
-                    <input asp-for="Apm" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Apm"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="BirthDate">Fecha de nacimiento:</label>
-                    <input type="date" asp-for="BirthDate" class="form-control" />
-                    <span class="text-danger" asp-validation-for="BirthDate"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <h3 class="text-center">Datos del padre</h3>
-                <div class="form-group">
-                    <label asp-for="Father.Name">Nombre:</label>
-                    <input asp-for="Father.Name" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Father.Name"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Father.App">A. Paterno:</label>
-                    <input asp-for="Father.App" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Father.App"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Father.Apm">A. Materno:</label>
-                    <input asp-for="Father.Apm" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Father.Apm"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <h3 class="text-center">Datos de la madre</h3>
-                <div class="form-group">
-                    <label asp-for="Mother.Name">Nombre:</label>
-                    <input asp-for="Mother.Name" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Mother.Name"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Mother.App">A. Paterno:</label>
-                    <input asp-for="Mother.App" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Mother.App"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Mother.Apm">A. Materno:</label>
-                    <input asp-for="Mother.Apm" class="form-control" />
-                    <span class="text-danger" asp-validation-for="Mother.Apm"></span>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-warning">Registrar</button>
-        </form>
+                <button type="submit" class="btn btn-warning">Registrar</button>
+            </form>
+        </div>
     </div>
 </div>
