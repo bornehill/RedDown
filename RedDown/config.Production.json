@@ -1,0 +1,12 @@
+﻿{
+  "ConnectionStrings": {
+    "RedDownConnection": "server=4ecca261-a718-47a7-8e07-a887005737b6.sqlserver.sequelizer.com;Database=db4ecca261a71847a78e07a887005737b6; MultipleActiveResultSets=true; User Id=nolugopzoumcoznz; Password=HZpEanZDKQd833dgr6wNCgW8NTFtGgJz5Twb6QHsS6nFDLbNTwVLG2AAdqZpNE5C"
+  },
+  "Logging": {
+    "LogLevel": {
+      //"Default": "Warning",
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}

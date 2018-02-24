@@ -1,0 +1,37 @@
+﻿@model IEnumerable<RegistryDownViewModel>
+<div class="col-md-8 col-md-offset-2">
+    <table class="table table-hover">
+        <caption><h3>Registros en RedDown</h3></caption>
+        <thead>
+            <tr>
+                <th>
+                    Curp
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Nacimiento
+                </th>
+                <th>
+                    Residencia
+                </th>
+                <th>
+                    Acción
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Curp</td>
+                    <td>@r.Name &nbsp; @r.App &nbsp; @r.Apm</td>
+                    <td>@r.BirthDate.ToShortDateString()</td>
+                    <td>@Enum.GetName(typeof(States), r.ResidencePlace)</td>
+                    <td><a href="/Registry/@r.DownId" class="btn btn-warning">Detalles</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

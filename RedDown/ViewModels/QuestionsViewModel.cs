@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using RedDown.Data.Entities;
 
 namespace RedDown.ViewModels
 {
     public class QuestionsViewModel
     {
+        public int QId;
         [Required]
         public bool CardioTipo { get; set; }
         [Required]
@@ -31,15 +33,15 @@ namespace RedDown.ViewModels
         [Required]
         public bool MalaConducta { get; set; }
         [Required]
-        public int InterTemprana { get; set; }
+        public ActivityTherapy InterTemprana { get; set; }
         [Required]
-        public int TerapiaLeng { get; set; }
+        public ActivityTherapy TerapiaLeng { get; set; }
         [Required]
-        public int TerapiaFam { get; set; }
+        public ActivityTherapy TerapiaFam { get; set; }
         [Required]
-        public int TerapiaAprenz { get; set; }
+        public ActivityTherapy TerapiaAprenz { get; set; }
         [Required]
-        public int ActActual { get; set; }
+        public ActivitySchool ActActual { get; set; }
         [Required]
         [MinLength(2)]
         public string Fundacion { get; set; }

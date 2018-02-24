@@ -1,0 +1,12 @@
+﻿{
+  "ConnectionStrings": {
+    "RedDownConnection": "server=LENOVO-PC\\BORNE;Database=RedDownDb;Integrated Security=true;MultipleActiveResultSets=true;"
+  },
+  "Logging": {
+    "LogLevel": {
+      //"Default": "Warning",
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}

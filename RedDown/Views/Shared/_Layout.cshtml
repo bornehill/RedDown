@@ -21,6 +21,9 @@
                     <li>
                         <a asp-controller="App" asp-action="Registry">Registro</a>
                     </li>
+                    <li>
+                        <a asp-controller="RegistryQuery" asp-action="Registries">Consulta</a>
+                    </li>
                 </ul>
             </div>
         </header>
@@ -36,5 +39,6 @@
     <script src="~/lib/jQuery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     @RenderSection("scripts", false)
+    @RenderSection("scriptsFoot", false)
 </body>
 </html>

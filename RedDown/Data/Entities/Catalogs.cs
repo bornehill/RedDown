@@ -92,11 +92,11 @@ namespace RedDown.Data.Entities
 
     public enum Diagnostic
     {
-        [Display(Name="Pre Natal")]
+        [Display(Name="Prenatal")]
         Pre,
         [Display(Name="Al nacer")]
         Birth,
-        [Display(Name="A los 3 meses")]
+        [Display(Name="Después de los 3 meses")]
         Months3
     }
 
@@ -117,10 +117,12 @@ namespace RedDown.Data.Entities
     {
         [Display(Name="Escuela de educación especial")]
         Special,
-        [Display(Name="Escuela regular")]
+        [Display(Name="Escuela regular / Inclusión escolar")]
         Regular,
         [Display(Name="Proyecto laboral")]
-        Job
+        Job,
+        [Display(Name = "Esta en casa")]
+        House
     }
 
     public enum ActivityTherapy

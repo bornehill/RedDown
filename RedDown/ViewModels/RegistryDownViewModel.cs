@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using RedDown.Data.Entities;
 
 namespace RedDown.ViewModels
 {
     public class RegistryDownViewModel
     {
+        public int DownId;
         [Required]
         [StringLength(18, MinimumLength =18, ErrorMessage = "El CURP es requerido (18 caracteres)")]
         public string Curp { get; set; }
@@ -23,23 +25,23 @@ namespace RedDown.ViewModels
         [Required]
         public DateTime BirthDate { get; set; }
         [Required]
-        public int BirthPlace { get; set; }
+        public States BirthPlace { get; set; }
         [Required]
-        public int ResidencePlace { get; set; }
+        public States ResidencePlace { get; set; }
         [Required]
         public ParentViewModel Father { get; set; }
         [Required]
         public ParentViewModel Mother { get; set; }
         [Required]
-        public int SonNumber { get; set; }
+        public byte SonNumber { get; set; }
         [Required]
-        public int BrothersNumber { get; set; }
+        public byte BrothersNumber { get; set; }
         [Required]
-        public int MainCarer { get; set; }
+        public MainCarer MainCarer { get; set; }
         [Required]
-        public int DiagnosticTime { get; set; }
+        public Diagnostic DiagnosticTime { get; set; }
         [Required]
-        public int MedicalCare { get; set; }
+        public MedicalAtention MedicalCare { get; set; }
         [Required]
         public QuestionsViewModel Questions { get; set; }
     }

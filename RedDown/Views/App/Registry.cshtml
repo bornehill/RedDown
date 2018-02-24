@@ -32,12 +32,12 @@
                                         <span class="text-danger" asp-validation-for="Name"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="App">A. Paterno:</label>
+                                        <label asp-for="App">Apellido Paterno:</label>
                                         <input asp-for="App" class="form-control" />
                                         <span class="text-danger" asp-validation-for="App"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Apm">A. Materno:</label>
+                                        <label asp-for="Apm">Apellido Materno:</label>
                                         <input asp-for="Apm" class="form-control" />
                                         <span class="text-danger" asp-validation-for="Apm"></span>
                                     </div>
@@ -78,14 +78,14 @@
                                         <span class="text-danger" asp-validation-for="MainCarer"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="DiagnosticTime">Cuidador principal:</label>
+                                        <label asp-for="DiagnosticTime">Momento del diagnóstico del síndrome de Down:</label>
                                         <select asp-for="DiagnosticTime" class="form-control" asp-items="Html.GetEnumSelectList<Diagnostic>()">
                                             <option selected="selected" value="">Seleccionar</option>
                                         </select>
                                         <span class="text-danger" asp-validation-for="DiagnosticTime"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="MedicalCare">Atención medica:</label>
+                                        <label asp-for="MedicalCare">Atención médica:</label>
                                         <select asp-for="MedicalCare" class="form-control" asp-items="Html.GetEnumSelectList<MedicalAtention>()">
                                             <option selected="selected" value="">Seleccionar</option>
                                         </select>
@@ -100,12 +100,12 @@
                                         <span class="text-danger" asp-validation-for="Father.Name"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Father.App">A. Paterno:</label>
+                                        <label asp-for="Father.App">Apellido Paterno:</label>
                                         <input asp-for="Father.App" class="form-control" />
                                         <span class="text-danger" asp-validation-for="Father.App"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Father.Apm">A. Materno:</label>
+                                        <label asp-for="Father.Apm">Apellido Materno:</label>
                                         <input asp-for="Father.Apm" class="form-control" />
                                         <span class="text-danger" asp-validation-for="Father.Apm"></span>
                                     </div>
@@ -130,12 +130,12 @@
                                         <span class="text-danger" asp-validation-for="Mother.Name"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Mother.App">A. Paterno:</label>
+                                        <label asp-for="Mother.App">Apellido Paterno:</label>
                                         <input asp-for="Mother.App" class="form-control" />
                                         <span class="text-danger" asp-validation-for="Mother.App"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Mother.Apm">A. Materno:</label>
+                                        <label asp-for="Mother.Apm">Apellido Materno:</label>
                                         <input asp-for="Mother.Apm" class="form-control" />
                                         <span class="text-danger" asp-validation-for="Mother.Apm"></span>
                                     </div>
@@ -344,7 +344,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Questions.ActActual">Actividad actual:</label>
-                                    <select asp-for="Questions.ActActual" class="form-control" asp-items="Html.GetEnumSelectList<ActivityTherapy>()">
+                                    <select asp-for="Questions.ActActual" class="form-control" asp-items="Html.GetEnumSelectList<ActivitySchool>()">
                                         <option selected="selected" value="">Seleccionar</option>
                                     </select>
                                     <span class="text-danger" asp-validation-for="Questions.ActActual"></span>
@@ -358,8 +358,16 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-warning">Registrar</button>
+                <button type="submit" class="btn btn-warning">@ViewBag.ActionName</button>
+                <div class="text-success">@ViewBag.registryMessage</div>
             </form>
         </div>
     </div>
 </div>
+@section scriptsFoot {
+    <script>
+        if(@Model.DownId>0){
+            $('#generalData').collapse('show');
+        }
+    </script>
+}
